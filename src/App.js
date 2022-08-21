@@ -14,10 +14,17 @@ function App() {
 
     try {
       console.log(shade)
-      let colors = new Values(color).all(Number(shade))
+
+      let amount = Number(shade)
+      if (shade < 1) {
+        amount = 1
+      }
+
+      let colors = new Values(color).all(amount)
       // setError(false)
       // console.log(colors)
       setList(colors)
+      setError(false)
     } catch (error) {
       setError(true)
       console.log(error)
